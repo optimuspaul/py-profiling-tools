@@ -1,0 +1,21 @@
+
+language: python
+python:
+  - "2.7"
+  - "3.4"
+  - "3.5"
+install:
+  - sudo apt-get update
+  - sudo apt-add-repository ppa:ansible/ansible
+  - sudo apt-get update
+  - sudo apt-get install ansible
+  - pip install ansible
+  - sudo ansible-galaxy install -r roles.yml
+  - ansible-playbook main.yml
+  - pip install -r requirements.pip --use-mirrors
+
+script:
+  - nosetests -s -v
+env:
+  - INFLUX_HOST=127.0.0.1
+
