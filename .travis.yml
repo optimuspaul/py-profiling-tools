@@ -10,7 +10,7 @@ install:
   - cd roles
   - git clone https://github.com/optimuspaul/ansible-role-influxdb
   - cd ../
-  - ansible-playbook main.yml
+  - ansible-playbook -i hosts main.yml
   - pip install -r requirements.pip --use-mirrors
 
 script:
