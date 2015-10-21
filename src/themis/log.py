@@ -19,7 +19,7 @@ class TimeSeriesDataLogHandler(logging.Handler):
         """
         Initialize the handler.
         """
-        super().__init__()
+        super(TimeSeriesDataLogHandler, self).__init__()
         self.__influx = InfluxDBClient(influx_host, influx_port, influx_user, influx_pass, influx_db)
 
     def emit(self, record):
