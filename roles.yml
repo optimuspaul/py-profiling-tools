@@ -1,0 +1,4 @@
+
+# roles required to test
+- src: https://github.com/optimuspaul/ansible-role-influxdb
+  version: v1.0.2
