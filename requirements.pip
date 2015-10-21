@@ -1,1 +1,2 @@
 influxdb==2.9.2
+PyYAML==3.11
