@@ -2,8 +2,6 @@ import time
 import unittest
 import yaml
 
-from byzantine.engine.execute.constantinople import Emperor
-
 
 class timewith():
     def __init__(self, name=''):
