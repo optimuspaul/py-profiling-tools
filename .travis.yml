@@ -14,7 +14,7 @@ before_install:
   - docker run -d -p 8083:8083 -p 8086:8086 --expose 8090 --expose 8099 tutum/influxdb
 
 install:
-  - pip install -r requirements.pip --use-mirrors
+  - pip install -r requirements.pip
 
 script:
   - nosetests -s -v
