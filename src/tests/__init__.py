@@ -1,6 +1,8 @@
 import logging
 import os
 
+from influxdb import InfluxDBClient
+
 from themis.log import TimeSeriesDataLogHandler
 
 
@@ -11,6 +13,8 @@ INFLUX_PASS = os.environ.get("INFLUX_PASS", None)
 INFLUX_DB = os.environ.get("INFLUX_DB", "themis_tests")
 
 ts_handler = TimeSeriesDataLogHandler(INFLUX_HOST, INFLUX_PORT, INFLUX_USER, INFLUX_PASS, INFLUX_DB)
+
+influx = InfluxDBClient(INFLUX_HOST, INFLUX_PORT, INFLUX_USER, INFLUX_PASS, INFLUX_DB)
 
 log = logging.getLogger()
 log.addHandler(ts_handler)

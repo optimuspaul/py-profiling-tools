@@ -1,5 +1,4 @@
 import logging
-import traceback
 import time
 from datetime import datetime
 
@@ -23,7 +22,6 @@ class TimeSeriesDataLogHandler(logging.Handler):
         self.__influx = InfluxDBClient(influx_host, influx_port, influx_user, influx_pass, influx_db)
 
     def emit(self, record):
-        # print(record.__dict__)
         if hasattr(record, "ts_data"):
             ts_data = getattr(record, "ts_data")
             ts_data.apply_log_info(record)
@@ -40,6 +38,8 @@ class TSData(object):
 
     def apply_log_info(self, record):
         self.fields["msg"] = getattr(record, "msg")
+        if hasattr(record, "args"):
+            self.fields["msg"] = self.fields["msg"] % getattr(record, "args")
         self.ts = getattr(record, "created")
 
     def to_dict(self):
